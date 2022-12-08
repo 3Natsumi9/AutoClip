@@ -11,6 +11,8 @@
 		7FD3D7512940324100A9A622 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7502940324100A9A622 /* ContentView.swift */; };
 		7FD3D7532940324500A9A622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3D7522940324500A9A622 /* Assets.xcassets */; };
 		7FD3D7562940324500A9A622 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3D7552940324500A9A622 /* Preview Assets.xcassets */; };
+		7FD3D75F2940344D00A9A622 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D75E2940344D00A9A622 /* LibraryView.swift */; };
+		7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7672940542200A9A622 /* ProjectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		7FD3D7502940324100A9A622 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7FD3D7522940324500A9A622 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FD3D7552940324500A9A622 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7FD3D75E2940344D00A9A622 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		7FD3D7672940542200A9A622 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				7FD3D74E2940324100A9A622 /* AutoClipApp.swift */,
 				7FD3D7502940324100A9A622 /* ContentView.swift */,
+				7FD3D75E2940344D00A9A622 /* LibraryView.swift */,
+				7FD3D7672940542200A9A622 /* ProjectView.swift */,
 				7FD3D7522940324500A9A622 /* Assets.xcassets */,
 				7FD3D7542940324500A9A622 /* Preview Content */,
 			);
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD3D7512940324100A9A622 /* ContentView.swift in Sources */,
+				7FD3D75F2940344D00A9A622 /* LibraryView.swift in Sources */,
+				7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */,
 				7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
