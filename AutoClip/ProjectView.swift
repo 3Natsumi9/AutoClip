@@ -90,7 +90,7 @@ struct ProjectView: View {
             }
             .cornerRadius(15.0)
         }
-        .frame(width: sc.width * 0.9, height: sc.height * 0.2)
+        .frame(width: sc.width * 0.9, height: sc.height * 0.17)
     }
 }
 

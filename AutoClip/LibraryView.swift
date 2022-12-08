@@ -11,7 +11,8 @@ struct LibraryView: View {
     var body: some View {
         NavigationView {
             VStack {
-               
+               ProjectView(projectName: "test", gameName: "hoge", image: Image("test"), movieTime: "30:00", clips: 3)
+                ProjectView(projectName: "test", gameName: "hoge", image: Image("test"), movieTime: "30:00", clips: 3)
             }
                 .navigationTitle("ライブラリ")
                 .toolbar {
