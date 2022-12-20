@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */; };
 		7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D74E2940324100A9A622 /* AutoClipApp.swift */; };
 		7FD3D7512940324100A9A622 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7502940324100A9A622 /* ContentView.swift */; };
 		7FD3D7532940324500A9A622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FD3D7522940324500A9A622 /* Assets.xcassets */; };
@@ -15,9 +16,12 @@
 		7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7672940542200A9A622 /* ProjectView.swift */; };
 		7FD3D76A294189D400A9A622 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D769294189D300A9A622 /* SettingView.swift */; };
 		7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */; };
+		7FF1B95E2947077E00F71AA6 /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */; };
+		7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipDetectionView.swift; sourceTree = "<group>"; };
 		7FD3D74B2940324100A9A622 /* AutoClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD3D74E2940324100A9A622 /* AutoClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoClipApp.swift; sourceTree = "<group>"; };
 		7FD3D7502940324100A9A622 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -27,6 +31,8 @@
 		7FD3D7672940542200A9A622 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		7FD3D769294189D300A9A622 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
+		7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,9 @@
 				7FD3D75E2940344D00A9A622 /* LibraryView.swift */,
 				7FD3D769294189D300A9A622 /* SettingView.swift */,
 				7FD3D7672940542200A9A622 /* ProjectView.swift */,
+				7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */,
+				7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */,
+				7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,10 +184,13 @@
 			files = (
 				7FD3D7512940324100A9A622 /* ContentView.swift in Sources */,
 				7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */,
+				7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */,
 				7FD3D76A294189D400A9A622 /* SettingView.swift in Sources */,
 				7FD3D75F2940344D00A9A622 /* LibraryView.swift in Sources */,
 				7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */,
+				7FF1B95E2947077E00F71AA6 /* VideoPlayerController.swift in Sources */,
 				7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */,
+				7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

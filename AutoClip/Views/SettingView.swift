@@ -11,9 +11,9 @@ struct SettingView: View {
     var body: some View {
         NavigationView {
             Form {
-                Picker(selection: 0, label: Text("テンプレートマッチングを行う間隔")) {
-                    
-                }
+//                Picker(selection: 0, label: Text("テンプレートマッチングを行う間隔")) {
+//                    
+//                }
             }
         }
     }
