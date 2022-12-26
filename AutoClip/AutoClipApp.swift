@@ -11,8 +11,7 @@ import SwiftUI
 struct AutoClipApp: App {
     var body: some Scene {
         WindowGroup {
-            //ContentView()
-            ProjectView(projectName: "movie01", gameName: "Apex Legends", image: Image("test"), movieTime: "40:00", clips: 10)
+            ContentView()
         }
     }
 }
