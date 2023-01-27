@@ -10,6 +10,7 @@ import AVKit
 import Combine
 
 class VideoPlayerManager {
+    private(set) static var shared: VideoPlayerManager?
     /// 動画の再生位置
     var playTime: CMTime = .zero
     /// 検出されたクリップの範囲
@@ -37,9 +38,8 @@ class VideoPlayerManager {
     
     var playTimeSubject = PassthroughSubject<CMTime, Never>()
     var videoTimeSubject = PassthroughSubject<CMTime, Never>()
-    var cancellable = Set<AnyCancellable>()
         
-    init(detectedClipRanges: [CMTimeRange]) {
+    private init(detectedClipRanges: [CMTimeRange]) {
         self.detectedClipRanges = detectedClipRanges
         
         asset = NSDataAsset(name: "splatoon")
@@ -69,5 +69,10 @@ class VideoPlayerManager {
             self.playTime = CMTime(seconds: cmTime.seconds, preferredTimescale: self.videoTime.timescale)
             self.playTimeSubject.send(self.playTime)
         }
+    }
+    
+    public static func setup(detectedClipRanges: [CMTimeRange]) -> VideoPlayerManager {
+        shared = .init(detectedClipRanges: detectedClipRanges)
+        return shared!
     }
 }

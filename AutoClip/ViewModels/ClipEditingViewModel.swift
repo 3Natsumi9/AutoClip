@@ -11,14 +11,13 @@ import Combine
 
 class ClipEditingViewModel: ObservableObject {
     // FIXME: detectedClipRangesを実際のデータから渡す
-    @Published var model = VideoPlayerManager(detectedClipRanges: [
+    @Published var model = VideoPlayerManager.setup(detectedClipRanges: [
         .init(start: CMTimeMakeWithSeconds(10, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(100, preferredTimescale: 15360)),
         .init(start: CMTimeMakeWithSeconds(200, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(300, preferredTimescale: 15360)),
         .init(start: CMTimeMakeWithSeconds(330, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(370, preferredTimescale: 15360)),
         .init(start: CMTimeMakeWithSeconds(400, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(500, preferredTimescale: 15360)),
         .init(start: CMTimeMakeWithSeconds(550, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(660, preferredTimescale: 15360)),
-    ]
-    )
+    ])
     @Published var playTime: CMTime = .zero
     @Published var videoTime: CMTime = .zero
     @Published var seekTimes: [CMTimeRange] = []
