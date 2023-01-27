@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F076654297794D4004152F0 /* VideoSeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F076653297794D4004152F0 /* VideoSeekManager.swift */; };
+		7F07665629779566004152F0 /* ClipEditingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07665529779566004152F0 /* ClipEditingViewModel.swift */; };
+		7F0766582977964C004152F0 /* VideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0766572977964C004152F0 /* VideoPlayerManager.swift */; };
+		7F07665A2977AF71004152F0 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0766592977AF71004152F0 /* VideoItem.swift */; };
+		7F07665C2977FDF9004152F0 /* VideoPlayerPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */; };
 		7F1FB95029528FAF0067181E /* SeekBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1FB94F29528FAF0067181E /* SeekBarView.swift */; };
 		7F28039129656C06006C667D /* VideoPlayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28039029656C06006C667D /* VideoPlayButtonsView.swift */; };
 		7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */; };
@@ -19,11 +24,19 @@
 		7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7672940542200A9A622 /* ProjectView.swift */; };
 		7FD3D76A294189D400A9A622 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D769294189D300A9A622 /* SettingView.swift */; };
 		7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */; };
+		7FE8FFC6297D87D2001C4991 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8FFC5297D87D2001C4991 /* Settings.swift */; };
+		7FE8FFC8297D9753001C4991 /* SecondsKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8FFC7297D9753001C4991 /* SecondsKind.swift */; };
+		7FE8FFCC297E5367001C4991 /* timeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8FFCB297E5367001C4991 /* timeSettingView.swift */; };
 		7FF1B95E2947077E00F71AA6 /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */; };
 		7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F076653297794D4004152F0 /* VideoSeekManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSeekManager.swift; sourceTree = "<group>"; };
+		7F07665529779566004152F0 /* ClipEditingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipEditingViewModel.swift; sourceTree = "<group>"; };
+		7F0766572977964C004152F0 /* VideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerManager.swift; sourceTree = "<group>"; };
+		7F0766592977AF71004152F0 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
+		7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerPublisher.swift; sourceTree = "<group>"; };
 		7F1FB94F29528FAF0067181E /* SeekBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekBarView.swift; sourceTree = "<group>"; };
 		7F28039029656C06006C667D /* VideoPlayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayButtonsView.swift; sourceTree = "<group>"; };
 		7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipDetectionView.swift; sourceTree = "<group>"; };
@@ -37,6 +50,9 @@
 		7FD3D7672940542200A9A622 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		7FD3D769294189D300A9A622 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		7FE8FFC5297D87D2001C4991 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		7FE8FFC7297D9753001C4991 /* SecondsKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsKind.swift; sourceTree = "<group>"; };
+		7FE8FFCB297E5367001C4991 /* timeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeSettingView.swift; sourceTree = "<group>"; };
 		7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
 		7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,10 +114,8 @@
 				7FD216DF295ABDE200AF6CCA /* ClipEditingView.swift */,
 				7FD3D7672940542200A9A622 /* ProjectView.swift */,
 				7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */,
-				7F1FB94F29528FAF0067181E /* SeekBarView.swift */,
-				7F28039029656C06006C667D /* VideoPlayButtonsView.swift */,
-				7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */,
-				7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */,
+				7FE8FFCA297E52D4001C4991 /* SettingForms */,
+				7FE8FFC9297E5269001C4991 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */,
+				7F07665529779566004152F0 /* ClipEditingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -117,8 +132,33 @@
 		7FD3D76D2941AFBD00A9A622 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7F076653297794D4004152F0 /* VideoSeekManager.swift */,
+				7F0766572977964C004152F0 /* VideoPlayerManager.swift */,
+				7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */,
+				7F0766592977AF71004152F0 /* VideoItem.swift */,
+				7FE8FFC5297D87D2001C4991 /* Settings.swift */,
+				7FE8FFC7297D9753001C4991 /* SecondsKind.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7FE8FFC9297E5269001C4991 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */,
+				7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */,
+				7F28039029656C06006C667D /* VideoPlayButtonsView.swift */,
+				7F1FB94F29528FAF0067181E /* SeekBarView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7FE8FFCA297E52D4001C4991 /* SettingForms */ = {
+			isa = PBXGroup;
+			children = (
+				7FE8FFCB297E5367001C4991 /* timeSettingView.swift */,
+			);
+			path = SettingForms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,16 +233,24 @@
 			files = (
 				7FD3D7512940324100A9A622 /* ContentView.swift in Sources */,
 				7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */,
+				7F07665A2977AF71004152F0 /* VideoItem.swift in Sources */,
+				7F0766582977964C004152F0 /* VideoPlayerManager.swift in Sources */,
 				7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */,
 				7FD3D76A294189D400A9A622 /* SettingView.swift in Sources */,
+				7FE8FFC6297D87D2001C4991 /* Settings.swift in Sources */,
 				7F1FB95029528FAF0067181E /* SeekBarView.swift in Sources */,
+				7F07665C2977FDF9004152F0 /* VideoPlayerPublisher.swift in Sources */,
 				7FD216E0295ABDE200AF6CCA /* ClipEditingView.swift in Sources */,
 				7FD3D75F2940344D00A9A622 /* LibraryView.swift in Sources */,
 				7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */,
 				7FF1B95E2947077E00F71AA6 /* VideoPlayerController.swift in Sources */,
 				7F28039129656C06006C667D /* VideoPlayButtonsView.swift in Sources */,
 				7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */,
+				7F07665629779566004152F0 /* ClipEditingViewModel.swift in Sources */,
+				7FE8FFCC297E5367001C4991 /* timeSettingView.swift in Sources */,
 				7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */,
+				7F076654297794D4004152F0 /* VideoSeekManager.swift in Sources */,
+				7FE8FFC8297D9753001C4991 /* SecondsKind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

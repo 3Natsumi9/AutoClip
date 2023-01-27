@@ -8,12 +8,21 @@
 import SwiftUI
 
 struct SettingView: View {
+    @State var selection: SecondsKind = .three
+    @State var customValue = 0
     var body: some View {
         NavigationView {
             Form {
-//                Picker(selection: 0, label: Text("テンプレートマッチングを行う間隔")) {
-//                    
-//                }
+                Picker("クリップの前に映像を含める秒数", selection: $selection) {
+                    let kinds = SecondsKind.allCases
+                    
+                    ForEach(kinds) { kind in
+                        Text(kind.name).tag(kind)
+                    }
+                }
+                
+                Text("hoge")
+                
             }
         }
     }

@@ -15,6 +15,7 @@ struct ClipDetectionView: View {
     let player: AVPlayer
     let maximumValue: Float
     let sc = UIScreen.main.bounds
+    @State var selection: SecondsKind = .three
     
     init() {
         try! asset!.data.write(to: videoUrl)
@@ -56,8 +57,8 @@ struct ClipDetectionView: View {
                             HStack(spacing: 5) {
                                 HStack {
                                     Text("前")
-                                    NavigationLink(destination: EmptyView()) {
-                                        ButtonView("3秒")
+                                    NavigationLink(destination: timeSettingView(beforeOrAfter: .before, selection: $selection)) {
+                                        ButtonView("\(selection.name)")
                                     }
                                 }
                                 HStack {
@@ -83,20 +84,21 @@ struct ClipDetectionView: View {
                             }
                         }
                         
-                        HStack {
-                            Spacer()
-                            NavigationLink(destination: EmptyView()) {
-                                ButtonView("検出開始！", color: .red, selectable: false, bold: true)
-                                
-                            }
-                            Spacer()
-                        }
+                        
                         Spacer()
                     }
                     .buttonStyle(PlainButtonStyle())
                     .padding(.horizontal, 15.0)
                     .navigationTitle("クリップ検出")
                     .navigationBarTitleDisplayMode(.inline)
+                }
+                HStack {
+                    Spacer()
+                    NavigationLink(destination: EmptyView()) {
+                        ButtonView("検出開始！", color: .red, selectable: false, bold: true)
+                        
+                    }
+                    Spacer()
                 }
             }
         }
