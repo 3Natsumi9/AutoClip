@@ -10,6 +10,7 @@ import AVFoundation
 
 struct SeekBarView: View {
     @State var positionX = 0.0
+    @State var isDragging = false
     @ObservedObject var vm: ClipEditingViewModel
     let manager = VideoSeekManager()
     let sc = UIScreen.main.bounds
@@ -44,6 +45,7 @@ struct SeekBarView: View {
                     .gesture(
                         DragGesture()
                             .onChanged({ value in
+                                isDragging = true
                                 if !(value.location.x < 0.0 || value.location.x > sc.width * 0.9) {
                                     positionX = value.location.x
                                 } else {
@@ -58,6 +60,7 @@ struct SeekBarView: View {
                                 vm.seekBarChanged(cmTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime))
                             })
                             .onEnded({ _ in
+                                isDragging = false
                                 vm.clipRangesIndex = manager.getClipRangesIndex(playTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime), seekTimes: vm.seekTimes)
                                 vm.videoItemsIndex = vm.videoItems.searchIndex(playTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime))
                                 print("clipRangesIndex:", vm.clipRangesIndex)
@@ -70,8 +73,10 @@ struct SeekBarView: View {
                 .font(Font(UIFont.monospacedDigitSystemFont(ofSize: 16, weight: .regular)))
         }
         .onChange(of: vm.playTime) { time in
-            positionX = convertCMTimeToPositionX(playTime: time, videoTime: vm.videoTime)
-            print("positionX:", positionX)
+            if !isDragging {
+                positionX = convertCMTimeToPositionX(playTime: time, videoTime: vm.videoTime)
+                            print("positionX:", positionX)
+            }
         }
     }
     
