@@ -43,6 +43,10 @@ class ClipEditingViewModel: ObservableObject {
         model.player
     }
     
+    var asset: AVAsset? {
+        model.asset
+    }
+    
     private var videoTimeSubject: PassthroughSubject<CMTime, Never> {
         get {
             model.videoTimeSubject

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import AVKit
+import AVFoundation
 
-struct VideoItem {
+class VideoItem {
     /// 検出されたクリップの範囲
     let detectedClipRange: CMTimeRange
     /// クリップの前に映像を含める秒数
@@ -17,7 +17,7 @@ struct VideoItem {
     var timeAfterClip: SecondsKind
     /// 動画時間
     let videoTime: CMTime
-    /// 動画の範囲
+    /// 動画の範囲(クリップの前、後に映像を含めての範囲)
     var range: CMTimeRange = .zero
     /// 出力するかどうか
     var isOutput = false

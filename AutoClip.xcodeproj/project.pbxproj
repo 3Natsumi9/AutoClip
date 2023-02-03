@@ -15,6 +15,11 @@
 		7F1FB95029528FAF0067181E /* SeekBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1FB94F29528FAF0067181E /* SeekBarView.swift */; };
 		7F28039129656C06006C667D /* VideoPlayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28039029656C06006C667D /* VideoPlayButtonsView.swift */; };
 		7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */; };
+		7F5BAFF429836F68003D3A70 /* StillImageExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5BAFF329836F68003D3A70 /* StillImageExtractor.swift */; };
+		7FA1D19A29864E67009269CF /* ClipItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1D19929864E67009269CF /* ClipItemView.swift */; };
+		7FA1D19C2986E17E009269CF /* ClipItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1D19B2986E17E009269CF /* ClipItemViewModel.swift */; };
+		7FA1D19E2988B270009269CF /* ClipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1D19D2988B270009269CF /* ClipListView.swift */; };
+		7FA1D1A0298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1D19F298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift */; };
 		7FD216E0295ABDE200AF6CCA /* ClipEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD216DF295ABDE200AF6CCA /* ClipEditingView.swift */; };
 		7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D74E2940324100A9A622 /* AutoClipApp.swift */; };
 		7FD3D7512940324100A9A622 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7502940324100A9A622 /* ContentView.swift */; };
@@ -40,6 +45,11 @@
 		7F1FB94F29528FAF0067181E /* SeekBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekBarView.swift; sourceTree = "<group>"; };
 		7F28039029656C06006C667D /* VideoPlayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayButtonsView.swift; sourceTree = "<group>"; };
 		7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipDetectionView.swift; sourceTree = "<group>"; };
+		7F5BAFF329836F68003D3A70 /* StillImageExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillImageExtractor.swift; sourceTree = "<group>"; };
+		7FA1D19929864E67009269CF /* ClipItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemView.swift; sourceTree = "<group>"; };
+		7FA1D19B2986E17E009269CF /* ClipItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemViewModel.swift; sourceTree = "<group>"; };
+		7FA1D19D2988B270009269CF /* ClipListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipListView.swift; sourceTree = "<group>"; };
+		7FA1D19F298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipsSaveToPhotoLibrary.swift; sourceTree = "<group>"; };
 		7FD216DF295ABDE200AF6CCA /* ClipEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipEditingView.swift; sourceTree = "<group>"; };
 		7FD3D74B2940324100A9A622 /* AutoClip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoClip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FD3D74E2940324100A9A622 /* AutoClipApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoClipApp.swift; sourceTree = "<group>"; };
@@ -112,8 +122,8 @@
 				7FD3D75E2940344D00A9A622 /* LibraryView.swift */,
 				7FD3D769294189D300A9A622 /* SettingView.swift */,
 				7FD216DF295ABDE200AF6CCA /* ClipEditingView.swift */,
-				7FD3D7672940542200A9A622 /* ProjectView.swift */,
 				7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */,
+				7FA1D19D2988B270009269CF /* ClipListView.swift */,
 				7FE8FFCA297E52D4001C4991 /* SettingForms */,
 				7FE8FFC9297E5269001C4991 /* Components */,
 			);
@@ -125,6 +135,7 @@
 			children = (
 				7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */,
 				7F07665529779566004152F0 /* ClipEditingViewModel.swift */,
+				7FA1D19B2986E17E009269CF /* ClipItemViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -134,10 +145,12 @@
 			children = (
 				7F076653297794D4004152F0 /* VideoSeekManager.swift */,
 				7F0766572977964C004152F0 /* VideoPlayerManager.swift */,
+				7F5BAFF329836F68003D3A70 /* StillImageExtractor.swift */,
 				7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */,
 				7F0766592977AF71004152F0 /* VideoItem.swift */,
 				7FE8FFC5297D87D2001C4991 /* Settings.swift */,
 				7FE8FFC7297D9753001C4991 /* SecondsKind.swift */,
+				7FA1D19F298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,7 +158,9 @@
 		7FE8FFC9297E5269001C4991 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7FD3D7672940542200A9A622 /* ProjectView.swift */,
 				7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */,
+				7FA1D19929864E67009269CF /* ClipItemView.swift */,
 				7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */,
 				7F28039029656C06006C667D /* VideoPlayButtonsView.swift */,
 				7F1FB94F29528FAF0067181E /* SeekBarView.swift */,
@@ -232,6 +247,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD3D7512940324100A9A622 /* ContentView.swift in Sources */,
+				7FA1D19A29864E67009269CF /* ClipItemView.swift in Sources */,
+				7FA1D1A0298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift in Sources */,
 				7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */,
 				7F07665A2977AF71004152F0 /* VideoItem.swift in Sources */,
 				7F0766582977964C004152F0 /* VideoPlayerManager.swift in Sources */,
@@ -248,7 +265,10 @@
 				7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */,
 				7F07665629779566004152F0 /* ClipEditingViewModel.swift in Sources */,
 				7FE8FFCC297E5367001C4991 /* timeSettingView.swift in Sources */,
+				7F5BAFF429836F68003D3A70 /* StillImageExtractor.swift in Sources */,
 				7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */,
+				7FA1D19E2988B270009269CF /* ClipListView.swift in Sources */,
+				7FA1D19C2986E17E009269CF /* ClipItemViewModel.swift in Sources */,
 				7F076654297794D4004152F0 /* VideoSeekManager.swift in Sources */,
 				7FE8FFC8297D9753001C4991 /* SecondsKind.swift in Sources */,
 			);
@@ -384,6 +404,7 @@
 				DEVELOPMENT_TEAM = Q7P82VN6M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -413,6 +434,7 @@
 				DEVELOPMENT_TEAM = Q7P82VN6M3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

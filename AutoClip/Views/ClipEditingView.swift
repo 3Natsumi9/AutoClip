@@ -69,7 +69,17 @@ struct ClipEditingView: View {
                                 Toggle("このクリップを出力に含める", isOn: $vm.isPlayable)
                                     .opacity(0.0)
                             }
-                            ButtonView("リスト形式で表示する", color: .blue, selectable: true, bold: true)
+                            NavigationLink(destination: ClipListView(videoItems: $vm.videoItems, avAsset: vm.asset!)) {
+                                ButtonView("リスト形式で表示する", color: .blue, selectable: true, bold: true)
+                            }
+                            Button("出力") {
+                                let exporter = ClipsSaveToPhotoLibrary(asset: vm.asset!)
+                                vm.videoItems.forEach {
+                                    if $0.isOutput {
+                                        exporter.fetch(range: $0.range)
+                                    }
+                                }
+                            }
                             Spacer()
                             VideoPlayButtonsView(viewModel: vm)
                         }

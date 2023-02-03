@@ -12,8 +12,10 @@ struct LibraryView: View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 20) {
-                   ProjectView(projectName: "test", gameName: "hoge", image: Image("test"), movieTime: "30:00", clips: 3)
-                    ProjectView(projectName: "test", gameName: "hoge", image: Image("test"), movieTime: "30:00", clips: 3)
+                        ProjectView(projectName: "test", gameName: "hoge", image: Image("test"), movieTime: "30:00", clips: 3)
+                                            ProjectView(projectName: "test", gameName: "hoge", image: Image("test"), movieTime: "30:00", clips: 3)
+                    
+                   
                 }
                     .navigationTitle("ライブラリ")
                     .toolbar {

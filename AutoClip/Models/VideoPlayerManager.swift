@@ -25,7 +25,7 @@ class VideoPlayerManager {
     /// そのクリップを出力するかどうかのパラメータ
     var outputClips: [VideoItem] = []
     
-    let asset: NSDataAsset?
+    let asset: AVAsset?
     let videoUrl: URL
     let playerItem: AVPlayerItem
     /// 動画を再生するプレイヤー
@@ -42,11 +42,10 @@ class VideoPlayerManager {
     private init(detectedClipRanges: [CMTimeRange]) {
         self.detectedClipRanges = detectedClipRanges
         
-        asset = NSDataAsset(name: "splatoon")
         videoUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("splatoon.mp4")
+        asset = AVAsset(url: videoUrl)
 
-        try! asset!.data.write(to: videoUrl)
-        playerItem = AVPlayerItem(url: videoUrl)
+        playerItem = AVPlayerItem(asset: asset!)
         player = AVPlayer(playerItem: playerItem)
         
         playerStatusObserver = player.observe(\.currentItem!.status) { data, status in
