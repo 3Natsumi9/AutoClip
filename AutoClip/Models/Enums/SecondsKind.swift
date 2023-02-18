@@ -7,11 +7,7 @@
 
 import Foundation
 
-enum SecondsKind: CaseIterable, Identifiable, Hashable {
-    var id: UUID {
-        UUID()
-    }
-    
+enum SecondsKind: CaseIterable, Hashable {    
     static var allCases: [SecondsKind] = [
         .zero, .three, .five, .ten, .fifteen, .twenty, .twentyfive, .thirty
     ]

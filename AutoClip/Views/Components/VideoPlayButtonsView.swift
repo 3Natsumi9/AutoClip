@@ -9,7 +9,6 @@ import SwiftUI
 import AVFoundation
 
 struct VideoPlayButtonsView: View {
-    @State var isPlaying = true
     @ObservedObject var vm: ClipEditingViewModel
     
     init(viewModel vm: ClipEditingViewModel) {
@@ -23,21 +22,21 @@ struct VideoPlayButtonsView: View {
             Button {
                 vm.playTime.value = vm.seekTimes[vm.clipRangesIndex].start.value
                 vm.player.seek(to: vm.seekTimes[vm.clipRangesIndex].start, toleranceBefore: .zero, toleranceAfter: .zero)
+                vm.player.play()
             } label:{
                 Image(systemName: "backward.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: sc.width * 0.18)
+                    .frame(width: sc.width * 0.18, height: sc.width * 0.18)
             }
             Button {
-                isPlaying.toggle()
-                if !isPlaying {
+                if !vm.isPlay {
                     vm.player.play()
                 } else {
                     vm.player.pause()
                 }
             } label:{
-                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                Image(systemName: vm.isPlay ? "pause.fill" : "play.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: sc.width * 0.185)
@@ -45,12 +44,12 @@ struct VideoPlayButtonsView: View {
             Button {
                 vm.playTime.value = vm.seekTimes[vm.clipRangesIndex].end.value
                 vm.player.seek(to: vm.seekTimes[vm.clipRangesIndex].end, toleranceBefore: .zero, toleranceAfter: .zero)
-
+                vm.player.play()
             } label:{
                 Image(systemName: "forward.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: sc.width * 0.18)
+                    .frame(width: sc.width * 0.18, height: sc.width * 0.18)
             }
         }
         .foregroundColor(.black)

@@ -16,13 +16,10 @@ struct SettingView: View {
                 Picker("クリップの前に映像を含める秒数", selection: $selection) {
                     let kinds = SecondsKind.allCases
                     
-                    ForEach(kinds) { kind in
+                    ForEach(kinds, id: \.self) { kind in
                         Text(kind.name).tag(kind)
                     }
                 }
-                
-                Text("hoge")
-                
             }
         }
     }

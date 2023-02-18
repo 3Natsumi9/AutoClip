@@ -25,11 +25,11 @@ class ClipsSaveToPhotoLibrary {
                 
                 let videoCompositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid)!
                 
-                try videoCompositionTrack.insertTimeRange(CMTimeRangeMake(start: .zero, duration: CMTime(value: CMTimeMakeWithSeconds(10, preferredTimescale: 1).value, timescale: 1)), of: videoTrack, at: .zero)
+                try videoCompositionTrack.insertTimeRange(range, of: videoTrack, at: .zero)
                 
                 let audioCompositiontrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
                 
-                try audioCompositiontrack.insertTimeRange(CMTimeRangeMake(start: .zero, duration: CMTime(value: CMTimeMakeWithSeconds(10, preferredTimescale: 1).value, timescale: 1)), of: audioTrack, at: .zero)
+                try audioCompositiontrack.insertTimeRange(range, of: audioTrack, at: .zero)
                 
                 return composition
             }
@@ -41,12 +41,11 @@ class ClipsSaveToPhotoLibrary {
         publisher.sink(receiveCompletion: {_ in
             
         }, receiveValue: { exporter in
-            let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("clip.mov")
+            let outputURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString)clip.mov")
             try? FileManager.default.removeItem(at: outputURL)
             exporter?.outputURL = outputURL
             exporter?.outputFileType = .mov
             
-            print(exporter?.outputURL)
             exporter?.exportAsynchronously {
                 if exporter?.status == .completed {
                     print("出力が完了しました")
@@ -77,7 +76,6 @@ class ClipsSaveToPhotoLibrary {
                     print("Export Failed: \(exporter?.error.debugDescription ?? "Unknown Error")")
                 }
             }
-            
         })
         .cancel()
     }
@@ -85,9 +83,7 @@ class ClipsSaveToPhotoLibrary {
     private func videoTrackPublisher(asset: AVAsset) -> AnyPublisher<AVAssetTrack, Never> {
         Deferred {
             Future<AVAssetTrack, Never> { promiss in
-                print("hello")
                 asset.loadTracks(withMediaType: .video) { tracks, _ in
-                    print(tracks)
                     promiss(.success(tracks!.first!))
                 }
             }

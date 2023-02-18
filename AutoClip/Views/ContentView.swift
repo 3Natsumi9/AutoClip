@@ -12,7 +12,8 @@ struct ContentView: View {
     @StateObject private var vm = TestViewModel()
     
     var body: some View {
-        ClipEditingView()
+        //ClipEditingView(vm: ClipEditingViewModel())
+        LibraryView()
     }
 }
 

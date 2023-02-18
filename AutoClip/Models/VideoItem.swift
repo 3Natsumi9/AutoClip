@@ -28,7 +28,8 @@ class VideoItem {
         self.timeAfterClip = timeAfterClip
         self.videoTime = videoTime
         self.range = getRange()
-        print("range:", self.range.start, self.range.end)
+        print("detectedClipRange:", self.detectedClipRange.start.seconds, self.detectedClipRange.end.seconds)
+        print("range:", self.range.start.seconds, self.range.end.seconds)
     }
     
     private func getRange() -> CMTimeRange {
@@ -56,10 +57,10 @@ class VideoItem {
 extension Array where Element == VideoItem {
     func searchIndex(playTime: CMTime) -> Int {
         for (i, item) in self.enumerated() {
-            print("---------------------------------")
-            print("playTime:", playTime)
-            print("item.range:", item.range.start, item.range.end)
-            print("---------------------------------")
+//            print("---------------------------------")
+//            print("playTime:", playTime)
+//            print("item.range:", item.range.start, item.range.end)
+//            print("---------------------------------")
             if playTime.value >= item.range.start.value && playTime.value <= item.range.end.value {
                 return i
             }

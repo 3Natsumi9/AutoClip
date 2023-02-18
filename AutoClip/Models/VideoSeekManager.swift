@@ -10,7 +10,7 @@ import AVKit
 
 struct VideoSeekManager {
     // seekTimesを取得する
-    // [[←ボタンを押した時に、seekするCMTime, →ボタンを押した時に、seekするCMTime]...]
+    // [[←ボタンを押した時に、seekするCMTime, →ボタンを押した時に、seekするCMTime], ...]
     func getSeekTimes(detectedClipRanges: [CMTimeRange], videoTime: CMTime) -> [CMTimeRange] {
         /// 非クリップ検出範囲
         var nondetectedClipRanges: [CMTimeRange] = []
@@ -42,7 +42,7 @@ struct VideoSeekManager {
         
         // 最後のクリップ検出範囲の終わりの位置から動画の終わりの位置までの範囲
         seekTimes.append(.init(
-            start: detectedClipRanges.last!.end, end: videoTime
+            start: detectedClipRanges.last!.end, end: .init(value: videoTime.value - 1, timescale: videoTime.timescale)
         ))
         
         return seekTimes

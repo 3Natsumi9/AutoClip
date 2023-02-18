@@ -6,18 +6,11 @@
 //
 
 import SwiftUI
-import AVKit
+import AVFoundation
 import Combine
 
 class ClipEditingViewModel: ObservableObject {
-    // FIXME: detectedClipRangesを実際のデータから渡す
-    @Published var model = VideoPlayerManager.setup(detectedClipRanges: [
-        .init(start: CMTimeMakeWithSeconds(10, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(100, preferredTimescale: 15360)),
-        .init(start: CMTimeMakeWithSeconds(200, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(300, preferredTimescale: 15360)),
-        .init(start: CMTimeMakeWithSeconds(330, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(370, preferredTimescale: 15360)),
-        .init(start: CMTimeMakeWithSeconds(400, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(500, preferredTimescale: 15360)),
-        .init(start: CMTimeMakeWithSeconds(550, preferredTimescale: 15360), end: CMTimeMakeWithSeconds(660, preferredTimescale: 15360)),
-    ])
+    @Published var model: VideoPlayerManager
     @Published var playTime: CMTime = .zero
     @Published var videoTime: CMTime = .zero
     @Published var seekTimes: [CMTimeRange] = []
@@ -25,6 +18,7 @@ class ClipEditingViewModel: ObservableObject {
     @Published var clipRangesIndex = 0
     @Published var videoItemsIndex = 0
     @Published var isPlayable = false
+    @Published var isPlay = false
     
     var detectedClipRanges: [CMTimeRange] {
         model.detectedClipRanges
@@ -43,8 +37,12 @@ class ClipEditingViewModel: ObservableObject {
         model.player
     }
     
-    var asset: AVAsset? {
+    var asset: AVAsset {
         model.asset
+    }
+    
+    var playerItem: AVPlayerItem {
+        model.playerItem
     }
     
     private var videoTimeSubject: PassthroughSubject<CMTime, Never> {
@@ -65,6 +63,15 @@ class ClipEditingViewModel: ObservableObject {
         }
     }
     
+    private var isPlaySubject: PassthroughSubject<Bool, Never> {
+        get {
+            model.isPlaySubject
+        }
+        set {
+            model.isPlaySubject = newValue
+        }
+    }
+    
     func seekBarChanged(cmTime: CMTime) {
         seekBarPublisher(cmTime: cmTime)
     }
@@ -72,6 +79,7 @@ class ClipEditingViewModel: ObservableObject {
     var seekBarPublisherCancellable: AnyCancellable?
     var videoTimeSubjectCancellable: AnyCancellable?
     var playTimeSubjectCancellable: AnyCancellable?
+    var isPlaySubjectCancellable: AnyCancellable?
     
     var cancellables: [AnyCancellable?]
     
@@ -89,11 +97,13 @@ class ClipEditingViewModel: ObservableObject {
         }
     }
     
-    init() {
+    init(videoUrl: URL, detectedClipRanges: [CMTimeRange]) {
+        self.model = VideoPlayerManager.setup(videoUrl: videoUrl, detectedClipRanges: detectedClipRanges)
+        
          let manager = VideoSeekManager()
-    
+        
         cancellables = [
-            seekBarPublisherCancellable, videoTimeSubjectCancellable, playTimeSubjectCancellable
+            seekBarPublisherCancellable, videoTimeSubjectCancellable, playTimeSubjectCancellable, isPlaySubjectCancellable
         ]
         
         videoTimeSubjectCancellable = videoTimeSubject
@@ -118,14 +128,17 @@ class ClipEditingViewModel: ObservableObject {
         
         playTimeSubjectCancellable = playTimeSubject
             .dropFirst()
-            .sink { cmTime in
-                print("changed")
-                self.playTime = cmTime
+            .sink {
+                self.playTime = $0
+            }
+        
+        isPlaySubjectCancellable = isPlaySubject
+            .sink {
+                self.isPlay = $0
             }
     }
     
     deinit {
-        print("deinit")
         cancellables.forEach {
             if let cancellable = $0 {
                 cancellable.cancel()

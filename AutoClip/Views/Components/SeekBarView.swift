@@ -27,6 +27,17 @@ struct SeekBarView: View {
                     .cornerRadius(30.0)
                 
                 // 検出したクリップの位置に黄色いViewを重ねてハイライトする
+                ForEach(0..<vm.videoItems.count, id: \.self) { index in
+                    Rectangle()
+                        .foregroundColor(.yellow)
+                        .opacity(0.5)
+                        .frame(height: 6)
+                        .frame(width: getWidthSize(startVal: vm.videoItems[index].range.start.value, endVal: vm.videoItems[index].range.end.value, videoTimeVal: vm.videoTime.value))
+                        .cornerRadius(30.0)
+                        .offset(x: getHighlightPosition(startVal: vm.videoItems[index].range.start.value, videoTimeVal: vm.videoTime.value))
+                }
+                
+                // 検出したクリップの位置に黄色いViewを重ねてハイライトする
                 ForEach(0..<vm.detectedClipRanges.count, id: \.self) { index in
                     Rectangle()
                         .foregroundColor(.yellow)
@@ -75,16 +86,19 @@ struct SeekBarView: View {
         .onChange(of: vm.playTime) { time in
             if !isDragging {
                 positionX = convertCMTimeToPositionX(playTime: time, videoTime: vm.videoTime)
-                            print("positionX:", positionX)
+                print("positionX:", positionX)
             }
+            print("playTime:", time.value)
+            vm.videoItemsIndex = vm.videoItems.searchIndex(playTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime))
+            vm.clipRangesIndex = manager.getClipRangesIndex(playTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime), seekTimes: vm.seekTimes)
         }
     }
     
     // シークバー上でハイライトされる位置を取得する
     // offsetでx座標をどのくらいずらせばいいのかを返す
     func getHighlightPosition(startVal: CMTimeValue, videoTimeVal: CMTimeValue) -> CGFloat {
-        print("startVal:", startVal)
-        print("videoTimeVal:", videoTimeVal)
+        //        print("startVal:", startVal)
+        //        print("videoTimeVal:", videoTimeVal)
         return (CGFloat(startVal) * (sc.width * 0.9)) / CGFloat(videoTimeVal)
     }
     
@@ -93,7 +107,10 @@ struct SeekBarView: View {
         print(startVal, endVal, videoTimeVal)
         let start = getHighlightPosition(startVal: startVal, videoTimeVal: videoTimeVal)
         let end = getHighlightPosition(startVal: endVal, videoTimeVal: videoTimeVal)
-        let width = end - start
+        var width = end - start
+        if width.isNaN {
+            width = 0
+        }
         return width
     }
     
@@ -130,35 +147,3 @@ extension CMTime {
         }
     }
 }
-
-//struct SeekBarView_Previews: PreviewProvider {
-//    @StateObject private static var vm = TestViewModel()
-//
-//    init() {
-//        SeekBarView_Previews.vm.seekTimes = getSeekTimes(detectedClipRanges: SeekBarView_Previews.vm.testData, videoTime: SeekBarView_Previews.vm.testVideoTime)
-//    }
-//
-//    static var previews: some View {
-//        SeekBarView(playTime: $vm.playTime, detectedClipRanges: $vm.testData, seekTimes: $vm.seekTimes, clipRangesIndex: $vm.clipRangesIndex, videoTime: $vm.testVideoTime)
-//    }
-//    
-//    class TestViewModel: ObservableObject {
-//        @Published var playTime: CMTime = .init(seconds: 0.0, preferredTimescale: 600)
-//        @Published var testData: [CMTimeRange]
-//        @Published var clipRangesIndex: Int = 0
-//        @Published var seekTimes: [CMTimeRange] = []
-//        @Published var testVideoTime: CMTime
-//
-//
-//        init() {
-//            testData = [
-//                .init(start: CMTimeMakeWithSeconds(120, preferredTimescale: 600), end: CMTimeMakeWithSeconds(360, preferredTimescale: 600)),
-//                .init(start: CMTimeMakeWithSeconds(540, preferredTimescale: 600), end: CMTimeMakeWithSeconds(700, preferredTimescale: 600)),
-//                .init(start: CMTimeMakeWithSeconds(840, preferredTimescale: 600), end: CMTimeMakeWithSeconds(1300, preferredTimescale: 600)),
-//                .init(start: CMTimeMakeWithSeconds(1500, preferredTimescale: 600), end: CMTimeMakeWithSeconds(1900, preferredTimescale: 600)),
-//                .init(start: CMTimeMakeWithSeconds(2400, preferredTimescale: 600), end: CMTimeMakeWithSeconds(7200, preferredTimescale: 600)),
-//            ]
-//            testVideoTime = .init(seconds: 10000, preferredTimescale: 600)
-//        }
-//    }
-//}

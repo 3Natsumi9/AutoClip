@@ -58,7 +58,10 @@ struct ButtonView: View {
                                 Spacer()
                                 Triangle()
                                     .foregroundColor(Color(red: 0.851, green: 0.851, blue: 0.851))
-                                    .frame(width: geo.size.height - 12, height: geo.size.height - 12)
+                                    .frame(
+                                        width: geo.size.height - 12 < 0 ? 0 : geo.size.height - 12,
+                                        height: geo.size.height - 12 < 0 ? 0 : geo.size.height - 12
+                                    )
                                     .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
                             }
                             .frame(maxHeight: .infinity)

@@ -25,7 +25,7 @@ class VideoPlayerManager {
     /// そのクリップを出力するかどうかのパラメータ
     var outputClips: [VideoItem] = []
     
-    let asset: AVAsset?
+    let asset: AVAsset
     let videoUrl: URL
     let playerItem: AVPlayerItem
     /// 動画を再生するプレイヤー
@@ -34,21 +34,23 @@ class VideoPlayerManager {
     var isPlayable = false
     
     var playerStatusObserver: NSKeyValueObservation?
+    var playerRateObserver: NSKeyValueObservation?
     var currentTimeObserver: Any?
     
     var playTimeSubject = PassthroughSubject<CMTime, Never>()
     var videoTimeSubject = PassthroughSubject<CMTime, Never>()
+    var isPlaySubject = PassthroughSubject<Bool, Never>()
         
-    private init(detectedClipRanges: [CMTimeRange]) {
+    private init(videoUrl: URL, detectedClipRanges: [CMTimeRange]) {
         self.detectedClipRanges = detectedClipRanges
         
-        videoUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("splatoon.mp4")
-        asset = AVAsset(url: videoUrl)
-
-        playerItem = AVPlayerItem(asset: asset!)
-        player = AVPlayer(playerItem: playerItem)
+        self.videoUrl = videoUrl
+        self.asset = .init(url: videoUrl)
+        self.playerItem = .init(asset: self.asset)
         
-        playerStatusObserver = player.observe(\.currentItem!.status) { data, status in
+        self.player = AVPlayer(playerItem: playerItem)
+        
+        self.playerStatusObserver = player.observe(\.currentItem!.status) { data, status in
             switch data.status {
             case .unknown:
                 break
@@ -56,6 +58,7 @@ class VideoPlayerManager {
                 print("readyToPlay")
                 self.videoTime = data.currentItem!.duration
                 self.videoTimeSubject.send(data.currentItem!.duration)
+                self.playerStatusObserver = nil
             case .failed:
                 print("failed")
                 break
@@ -64,14 +67,30 @@ class VideoPlayerManager {
             }
         }
         
-        currentTimeObserver = player.addPeriodicTimeObserver(forInterval: .init(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: .main) { cmTime in
+        self.playerRateObserver = player.observe(\.rate) { player, value in
+            if player.rate == 1.0 {
+                self.isPlaySubject.send(true)
+            } else if player.rate == 0.0 {
+                self.isPlaySubject.send(false)
+            }
+        }
+        
+        self.currentTimeObserver = player.addPeriodicTimeObserver(forInterval: .init(seconds: 0.01, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), queue: .main) { cmTime in
             self.playTime = CMTime(seconds: cmTime.seconds, preferredTimescale: self.videoTime.timescale)
             self.playTimeSubject.send(self.playTime)
         }
     }
     
-    public static func setup(detectedClipRanges: [CMTimeRange]) -> VideoPlayerManager {
-        shared = .init(detectedClipRanges: detectedClipRanges)
+    public static func setup(videoUrl: URL, detectedClipRanges: [CMTimeRange]) -> VideoPlayerManager {
+        shared = .init(videoUrl: videoUrl, detectedClipRanges: detectedClipRanges)
         return shared!
+    }
+    
+    deinit {
+        playerStatusObserver = nil
+        if let observer = currentTimeObserver {
+            player.removeTimeObserver(observer)
+            currentTimeObserver = nil
+        }
     }
 }

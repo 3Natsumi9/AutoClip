@@ -8,35 +8,38 @@
 import SwiftUI
 
 struct timeSettingView: View {
-    let beforeOrAfter: BeforeOrAfter
-    let kinds = SecondsKind.allCases
+    let title: String
+    let kinds: [SecondsKind]
     @Binding var selection: SecondsKind
+    @Environment(\.isPresented) var isPresented
     
-    enum BeforeOrAfter {
-        case before
-        case after
-        
-        var displayText: String {
-            switch self {
-            case .before:
-                return "クリップの前に映像を含める秒数"
-            case .after:
-                return "クリップの後に映像を含める秒数"
-            }
-        }
+    init(title: String, selection: Binding<SecondsKind>) {
+        self.title = title
+        self._selection = selection
+        self.kinds = SecondsKind.allCases
     }
     
+    init(title: String, selection: Binding<SecondsKind>, ignoreTimes: [SecondsKind]) {
+        self.title = title
+        self._selection = selection
+        
+        var results = SecondsKind.allCases
+        for time in ignoreTimes {
+            results.removeAll(where: {
+                $0 == time
+            })
+        }
+        self.kinds = results
+    }
     
     var body: some View {
-        NavigationView {
-            Form {
-                Picker(beforeOrAfter.displayText, selection: $selection) {
-                    ForEach(kinds) { kind in
-                        Text(kind.name).tag(kind)
-                                    }
+        Form {
+            Picker(title, selection: $selection) {
+                ForEach(kinds, id: \.self) { kind in
+                    Text(kind.name).tag(kind)
                 }
-                .pickerStyle(.inline)
             }
+            .pickerStyle(.inline)
         }
     }
 }
@@ -44,6 +47,6 @@ struct timeSettingView: View {
 struct timeSettingView_Previews: PreviewProvider {
     @State static var selection: SecondsKind = .three
     static var previews: some View {
-        timeSettingView(beforeOrAfter: .before, selection: $selection)
+        timeSettingView(title: "クリップの前に映像を含める秒数", selection: $selection)
     }
 }
