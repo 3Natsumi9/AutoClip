@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import AVKit
+import AVFoundation
 
 struct VideoSeekManager {
     // seekTimesを取得する
@@ -54,6 +54,10 @@ struct VideoSeekManager {
         var index = 0
         for (i, timeRange) in seekTimes.enumerated() {
             index = i
+            
+            if playTime.value == 0 {
+                break
+            }
 
             if i % 2 == 0 {
                 if !(playTime.value > timeRange.start.value && playTime.value < timeRange.end.value) {
@@ -67,6 +71,8 @@ struct VideoSeekManager {
             
             break
         }
+        
+        print("index:", index)
         return index
     }
 }

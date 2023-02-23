@@ -18,7 +18,28 @@ class VideoItem {
     /// 動画時間
     let videoTime: CMTime
     /// 動画の範囲(クリップの前、後に映像を含めての範囲)
-    var range: CMTimeRange = .zero
+    var range: CMTimeRange {
+        get {
+            var range = CMTimeRange()
+            let start = detectedClipRange.start.seconds - Double(self.timeBeforeClip.value)
+            let end = detectedClipRange.end.seconds + Double(self.timeAfterClip.value)
+            var startCMTime: CMTime
+            var endCMTime: CMTime
+            if !(start < 0) {
+                startCMTime = CMTime(seconds: start, preferredTimescale: self.videoTime.timescale)
+            } else {
+                startCMTime = CMTime(value: 0, timescale: self.videoTime.timescale)
+            }
+            if !(end > self.videoTime.seconds) {
+                endCMTime = CMTime(seconds: end, preferredTimescale: self.videoTime.timescale)
+            } else {
+                endCMTime = self.videoTime
+            }
+            
+            range = CMTimeRange(start: startCMTime, end: endCMTime)
+            return range
+        }
+    }
     /// 出力するかどうか
     var isOutput = false
     
@@ -27,40 +48,15 @@ class VideoItem {
         self.timeBeforeClip = timeBeforeClip
         self.timeAfterClip = timeAfterClip
         self.videoTime = videoTime
-        self.range = getRange()
+        
         print("detectedClipRange:", self.detectedClipRange.start.seconds, self.detectedClipRange.end.seconds)
         print("range:", self.range.start.seconds, self.range.end.seconds)
-    }
-    
-    private func getRange() -> CMTimeRange {
-        var range = CMTimeRange()
-        let start = detectedClipRange.start.seconds - Double(Settings.shared.timeBeforeClip.value)
-        let end = detectedClipRange.end.seconds + Double(Settings.shared.timeAfterClip.value)
-        var startCMTime: CMTime
-        var endCMTime: CMTime
-        if !(start < 0) {
-            startCMTime = CMTime(seconds: start, preferredTimescale: self.videoTime.timescale)
-        } else {
-            startCMTime = CMTime(value: 0, timescale: self.videoTime.timescale)
-        }
-        if !(end > self.videoTime.seconds) {
-            endCMTime = CMTime(seconds: end, preferredTimescale: self.videoTime.timescale)
-        } else {
-            endCMTime = self.videoTime
-        }
-        
-        range = CMTimeRange(start: startCMTime, end: endCMTime)
-        return range
     }
 }
 
 extension Array where Element == VideoItem {
     func searchIndex(playTime: CMTime) -> Int {
         for (i, item) in self.enumerated() {
-//            print("---------------------------------")
-//            print("playTime:", playTime)
-//            print("item.range:", item.range.start, item.range.end)
-//            print("---------------------------------")
             if playTime.value >= item.range.start.value && playTime.value <= item.range.end.value {
                 return i
             }

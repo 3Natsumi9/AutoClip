@@ -13,6 +13,10 @@ import Combine
 class ClipDetectionProcess {
     /// ゲームの種類
     let game: GameKind
+    /// ゲームシーン
+    let scene: GameSceneKind
+    /// しきい値
+    let threshold: Float
     /// マッチング処理を行う間隔
     let matchSeconds: Int
     /// 動画のURL
@@ -25,8 +29,10 @@ class ClipDetectionProcess {
     /// processPublisherのcancellable
     //var processPublisherCancellable: AnyCancellable?
     
-    init(game: GameKind, matchSeconds: SecondsKind, videoUrl: URL) {
+    init(game: GameKind, scene: GameSceneKind, threshold: Float, matchSeconds: SecondsKind, videoUrl: URL) {
         self.game = game
+        self.scene = scene
+        self.threshold = threshold
         self.matchSeconds = matchSeconds.value
         self.videoUrl = videoUrl
         
@@ -92,7 +98,7 @@ class ClipDetectionProcess {
                     let matcher = BFMatcher(normType: NormTypes.NORM_HAMMING, crossCheck: false)
                     
                     // テンプレート画像
-                    let tmp = Mat(uiImage: UIImage(named: "splatoon2_kill_1920x1080.jpg")!)
+                    let tmp = Mat(uiImage: UIImage(named: "\(self.scene == .kill ?   self.game.killTemplateImageName : self.game.deathTemplateImageName)")!)
                     // 画像の色をグレースケールに変更する。これをするとマッチング処理が少し早くなる
                     Imgproc.cvtColor(src: tmp, dst: tmp, code: ColorConversionCodes.COLOR_BGR2GRAY)
                     // 画像に白で縁取りをする。マッチング精度が向上する。
@@ -125,16 +131,21 @@ class ClipDetectionProcess {
                     var detectedSeconds: [Double] = []
                     
                     // キル、デス時に文字が表示される場所は決まっているため、マスクを作成して、必要なところだけを特徴点マッチングする
-                    let mask = Mat(uiImage: UIImage(named: "splatoon3_mask.jpg")!)
+                    let mask = Mat(uiImage: UIImage(named: "\(self.scene == .kill ?  self.game.killMaskImageName : self.game.deathMaskImageName)")!)
                     Imgproc.resize(src: mask, dst: mask, dsize: Size2i(width: 1920, height: 1080))
                     Imgproc.cvtColor(src: mask, dst: mask, code: ColorConversionCodes.COLOR_BGR2GRAY)
                     Core.bitwise_not(src: mask, dst: mask)
+                    Imgproc.threshold(src: mask, dst: mask, thresh: 128, maxval: 255, type: .THRESH_BINARY)
                     mask.convert(to: mask, rtype: CvType.CV_8UC1)
                     Core.copyMakeBorder(src: mask, dst: mask, top: 50, bottom: 50, left: 50, right: 50, borderType: BorderTypes.BORDER_CONSTANT, value: Scalar(0, 0, 0))
                     
                     
                     // matchSecondsに指定された秒数ごとにマッチング処理を実行する
-                    for i in 0...Int(frameCount / frameRate) / self.matchSeconds {
+                    for i in 0..<Int(frameCount / frameRate) / self.matchSeconds {
+                        if frameCount < frameRate * Double(self.matchSeconds) {
+                            break
+                        }
+
                         // VideoCaptureを操作して、動画の再生位置を変更する
                         video.set(propId: VideoCaptureProperties.CAP_PROP_POS_MSEC.rawValue, value: Double(1000 * i * self.matchSeconds))
                         
@@ -162,7 +173,7 @@ class ClipDetectionProcess {
                         
                         var goodMatches: [DMatch] = []
                         let goodMatchThreshold: Float = 0.9
-                        let distanceThreshold: Float = 50.0
+                        let distanceThreshold: Float = self.threshold
                         for match in dMatch {
                             // マッチング結果が1以下であればその結果を無視する(マッチング不成立)
                             if match.count <= 1 {

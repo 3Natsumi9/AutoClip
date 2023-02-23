@@ -12,10 +12,8 @@ struct ClipDetectionProcessProgressView: View {
     @Binding var progress: Float
     var body: some View {
         ZStack {
-            Color.black
-                .blur(radius: 30)
+            Color.white
                 .frame(width: sc.width * 0.65, height: sc.width * 0.5)
-                .opacity(0.2)
                 .cornerRadius(10)
                 .overlay(
                     GeometryReader { geo in

@@ -15,7 +15,7 @@ struct ClipListView: View {
         VStack(spacing: 0) {
             ScrollView {
                 ForEach(Array(videoItems.enumerated()), id: \.offset) { i, item in
-                    ClipItemView(vm: .init(title: "クリップ\(i)", videoItem: item, avAsset: avAsset))
+                    ClipItemView(vm: .init(title: "クリップ\(i + 1)", videoItem: item, avAsset: avAsset))
                 }
             }
             Spacer()

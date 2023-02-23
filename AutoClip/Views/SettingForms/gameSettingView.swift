@@ -23,7 +23,7 @@ struct gameSettingView: View {
 }
 
 struct gameSettingView_Previews: PreviewProvider {
-    @State static var selection: GameKind = .apex
+    @State static var selection: GameKind = .splatoon
     static var previews: some View {
         gameSettingView(selection: $selection)
     }

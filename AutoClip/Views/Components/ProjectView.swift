@@ -6,34 +6,23 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ProjectView: View {
-    let projectName: String
-    let gameName: String
-    let image: Image
-    let movieTime: String
-    let clips: Int
+    var vm: ProjectViewModel
     @State var backSize: CGRect = .zero
     
     let sc = UIScreen.main.bounds
-    
-    init(projectName: String, gameName: String, image: Image, movieTime: String, clips: Int) {
-        self.projectName = projectName
-        self.gameName = gameName
-        self.image = image
-        self.movieTime = movieTime
-        self.clips = clips
-    }
     
     var body: some View {
         back
             .overlay(
                 HStack(spacing: 10) {
-                    image
+                    vm.image
                         .resizable()
                         .frame(width: backSize.width / 3, height: backSize.width / 3)
                         .overlay (
-                            Text(movieTime)
+                            Text(CMTime(seconds: vm.videoSeconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC)).time)
                                 .bold()
                                 .font(.callout)
                                 .foregroundColor(.white)
@@ -47,19 +36,19 @@ struct ProjectView: View {
                         .padding()
                     VStack(alignment: .leading, spacing: 10) {
                         Spacer()
-                        Text(projectName)
+                        Text(vm.projectName)
                             .bold()
                             .foregroundColor(.black)
                             .font(.title2)
                             .opacity(0.7)
-                        Text(gameName)
+                        Text(vm.game.name)
                             .foregroundColor(
                                 Color(red: 0.0, green: 0.0, blue: 1.0)
                             )
                         Spacer()
                         HStack {
                             Image(systemName: "paperclip")
-                            Text("\(clips)")
+                            Text("\(vm.clips)")
                         }
                         .foregroundColor(.black)
                         .opacity(0.6)
@@ -91,11 +80,5 @@ struct ProjectView: View {
             .cornerRadius(15.0)
         }
         .frame(width: sc.width * 0.9, height: sc.height * 0.17)
-    }
-}
-
-struct ProjectView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProjectView(projectName: "movie01", gameName: "Apex Legends", image: Image("test"), movieTime: "40:00", clips: 10)
     }
 }

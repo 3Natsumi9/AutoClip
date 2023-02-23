@@ -39,7 +39,7 @@ struct VideoPlayButtonsView: View {
                 Image(systemName: vm.isPlay ? "pause.fill" : "play.fill")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: sc.width * 0.185)
+                    .frame(width: sc.width * 0.185, height: sc.width * 0.185)
             }
             Button {
                 vm.playTime.value = vm.seekTimes[vm.clipRangesIndex].end.value

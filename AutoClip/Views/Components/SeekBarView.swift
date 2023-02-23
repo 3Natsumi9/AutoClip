@@ -68,10 +68,10 @@ struct SeekBarView: View {
                                         positionX = sc.width * 0.9
                                     }
                                 }
-                                vm.seekBarChanged(cmTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime))
                             })
                             .onEnded({ _ in
                                 isDragging = false
+                                vm.seekBarChanged(cmTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime))
                                 vm.clipRangesIndex = manager.getClipRangesIndex(playTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime), seekTimes: vm.seekTimes)
                                 vm.videoItemsIndex = vm.videoItems.searchIndex(playTime: convertPositionXToCMTime(position: positionX, videoTime: vm.videoTime))
                                 print("clipRangesIndex:", vm.clipRangesIndex)
@@ -108,6 +108,10 @@ struct SeekBarView: View {
         let start = getHighlightPosition(startVal: startVal, videoTimeVal: videoTimeVal)
         let end = getHighlightPosition(startVal: endVal, videoTimeVal: videoTimeVal)
         var width = end - start
+        // クリップ検出が連続でされなかったとき、startとendが同じ値になり0になるのでその場合はwidthを1にして表示させる
+        if width == 0 {
+            width = 1
+        }
         if width.isNaN {
             width = 0
         }

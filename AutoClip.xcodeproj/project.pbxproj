@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74BBD2598AB3D83090EC694F /* Pods_AutoClip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 580E9B26B9BAD4DF09B45ED2 /* Pods_AutoClip.framework */; };
 		7F076654297794D4004152F0 /* VideoSeekManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F076653297794D4004152F0 /* VideoSeekManager.swift */; };
 		7F07665629779566004152F0 /* ClipEditingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07665529779566004152F0 /* ClipEditingViewModel.swift */; };
 		7F0766582977964C004152F0 /* VideoPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0766572977964C004152F0 /* VideoPlayerManager.swift */; };
 		7F07665A2977AF71004152F0 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0766592977AF71004152F0 /* VideoItem.swift */; };
-		7F07665C2977FDF9004152F0 /* VideoPlayerPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */; };
 		7F1FB95029528FAF0067181E /* SeekBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1FB94F29528FAF0067181E /* SeekBarView.swift */; };
 		7F28039129656C06006C667D /* VideoPlayButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F28039029656C06006C667D /* VideoPlayButtonsView.swift */; };
 		7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */; };
@@ -21,6 +21,11 @@
 		7F59B4142995D2B300B9C19A /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F59B4132995D2B300B9C19A /* opencv2.framework */; };
 		7F59B4182995D97900B9C19A /* PhotoLibraryVideoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F59B4172995D97900B9C19A /* PhotoLibraryVideoPickerView.swift */; };
 		7F5BAFF429836F68003D3A70 /* StillImageExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5BAFF329836F68003D3A70 /* StillImageExtractor.swift */; };
+		7F895E9E29A1236800110CA1 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F895E9D29A1236800110CA1 /* Project.swift */; };
+		7F895EA229A12E8500110CA1 /* TimeRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F895EA129A12E8500110CA1 /* TimeRange.swift */; };
+		7F895EA429A12ED400110CA1 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F895EA329A12ED400110CA1 /* Time.swift */; };
+		7F895EA929A131A300110CA1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F895EA829A131A300110CA1 /* SettingsModel.swift */; };
+		7F895EAB29A1A90E00110CA1 /* ProjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F895EAA29A1A90E00110CA1 /* ProjectViewModel.swift */; };
 		7F97B59C2999D51100A37E09 /* ClipDetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97B59B2999D51100A37E09 /* ClipDetectionViewModel.swift */; };
 		7F97B59E2999EDFD00A37E09 /* ClipDetectionProcessProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97B59D2999EDFD00A37E09 /* ClipDetectionProcessProgressView.swift */; };
 		7F97B5A02999F35900A37E09 /* gameSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97B59F2999F35900A37E09 /* gameSettingView.swift */; };
@@ -38,20 +43,21 @@
 		7FD3D75F2940344D00A9A622 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D75E2940344D00A9A622 /* LibraryView.swift */; };
 		7FD3D7682940542200A9A622 /* ProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D7672940542200A9A622 /* ProjectView.swift */; };
 		7FD3D76A294189D400A9A622 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D769294189D300A9A622 /* SettingView.swift */; };
-		7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */; };
 		7FE8FFC6297D87D2001C4991 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8FFC5297D87D2001C4991 /* Settings.swift */; };
 		7FE8FFC8297D9753001C4991 /* SecondsKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8FFC7297D9753001C4991 /* SecondsKind.swift */; };
 		7FE8FFCC297E5367001C4991 /* timeSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE8FFCB297E5367001C4991 /* timeSettingView.swift */; };
 		7FF1B95E2947077E00F71AA6 /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */; };
 		7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */; };
+		7FFF6C6729A1B45400BF5527 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFF6C6629A1B45400BF5527 /* LibraryViewModel.swift */; };
+		7FFF6C6929A1DC9900BF5527 /* VideoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFF6C6829A1DC9800BF5527 /* VideoItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		580E9B26B9BAD4DF09B45ED2 /* Pods_AutoClip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoClip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F076653297794D4004152F0 /* VideoSeekManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSeekManager.swift; sourceTree = "<group>"; };
 		7F07665529779566004152F0 /* ClipEditingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipEditingViewModel.swift; sourceTree = "<group>"; };
 		7F0766572977964C004152F0 /* VideoPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerManager.swift; sourceTree = "<group>"; };
 		7F0766592977AF71004152F0 /* VideoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItem.swift; sourceTree = "<group>"; };
-		7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerPublisher.swift; sourceTree = "<group>"; };
 		7F1FB94F29528FAF0067181E /* SeekBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeekBarView.swift; sourceTree = "<group>"; };
 		7F28039029656C06006C667D /* VideoPlayButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayButtonsView.swift; sourceTree = "<group>"; };
 		7F3A366C2942BFC200E486EA /* ClipDetectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipDetectionView.swift; sourceTree = "<group>"; };
@@ -61,6 +67,11 @@
 		7F59B4132995D2B300B9C19A /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = AutoClip/common/opencv2.framework; sourceTree = "<group>"; };
 		7F59B4172995D97900B9C19A /* PhotoLibraryVideoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryVideoPickerView.swift; sourceTree = "<group>"; };
 		7F5BAFF329836F68003D3A70 /* StillImageExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillImageExtractor.swift; sourceTree = "<group>"; };
+		7F895E9D29A1236800110CA1 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		7F895EA129A12E8500110CA1 /* TimeRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeRange.swift; sourceTree = "<group>"; };
+		7F895EA329A12ED400110CA1 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		7F895EA829A131A300110CA1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		7F895EAA29A1A90E00110CA1 /* ProjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectViewModel.swift; sourceTree = "<group>"; };
 		7F97B59B2999D51100A37E09 /* ClipDetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipDetectionViewModel.swift; sourceTree = "<group>"; };
 		7F97B59D2999EDFD00A37E09 /* ClipDetectionProcessProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipDetectionProcessProgressView.swift; sourceTree = "<group>"; };
 		7F97B59F2999F35900A37E09 /* gameSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameSettingView.swift; sourceTree = "<group>"; };
@@ -79,12 +90,15 @@
 		7FD3D75E2940344D00A9A622 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		7FD3D7672940542200A9A622 /* ProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectView.swift; sourceTree = "<group>"; };
 		7FD3D769294189D300A9A622 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		7FE8FFC5297D87D2001C4991 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7FE8FFC7297D9753001C4991 /* SecondsKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsKind.swift; sourceTree = "<group>"; };
 		7FE8FFCB297E5367001C4991 /* timeSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeSettingView.swift; sourceTree = "<group>"; };
 		7FF1B95D2947077E00F71AA6 /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
 		7FF1B95F29470FDC00F71AA6 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		7FFF6C6629A1B45400BF5527 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		7FFF6C6829A1DC9800BF5527 /* VideoItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoItemModel.swift; sourceTree = "<group>"; };
+		8AC5CB3ABBA350F04052D53A /* Pods-AutoClip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoClip.debug.xcconfig"; path = "Target Support Files/Pods-AutoClip/Pods-AutoClip.debug.xcconfig"; sourceTree = "<group>"; };
+		B2582CC65312180828DABB02 /* Pods-AutoClip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoClip.release.xcconfig"; path = "Target Support Files/Pods-AutoClip/Pods-AutoClip.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,17 +108,28 @@
 			files = (
 				7F59B4142995D2B300B9C19A /* opencv2.framework in Frameworks */,
 				7F59B4112995D04300B9C19A /* libc++.tbd in Frameworks */,
+				74BBD2598AB3D83090EC694F /* Pods_AutoClip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6905A606AED34B3921D3FE47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8AC5CB3ABBA350F04052D53A /* Pods-AutoClip.debug.xcconfig */,
+				B2582CC65312180828DABB02 /* Pods-AutoClip.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7F59B40F2995D02300B9C19A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				7F59B4132995D2B300B9C19A /* opencv2.framework */,
 				7F59B4102995D02400B9C19A /* libc++.tbd */,
+				580E9B26B9BAD4DF09B45ED2 /* Pods_AutoClip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +139,50 @@
 			children = (
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		7F895E9F29A1237700110CA1 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				7F895EA029A1238D00110CA1 /* Models */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		7F895EA029A1238D00110CA1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F895EA729A1319000110CA1 /* Settings */,
+				7F895EA529A1315F00110CA1 /* Project */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F895EA529A1315F00110CA1 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				7F895E9D29A1236800110CA1 /* Project.swift */,
+				7FFF6C6829A1DC9800BF5527 /* VideoItemModel.swift */,
+				7F895EA629A1316900110CA1 /* Components */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		7F895EA629A1316900110CA1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7F895EA129A12E8500110CA1 /* TimeRange.swift */,
+				7F895EA329A12ED400110CA1 /* Time.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7F895EA729A1319000110CA1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7F895EA829A131A300110CA1 /* SettingsModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		7F97B5A32999F9ED00A37E09 /* Enums */ = {
@@ -132,6 +201,7 @@
 				7FD3D74D2940324100A9A622 /* AutoClip */,
 				7FD3D74C2940324100A9A622 /* Products */,
 				7F59B40F2995D02300B9C19A /* Frameworks */,
+				6905A606AED34B3921D3FE47 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +220,7 @@
 				7FD3D76B2941AFB000A9A622 /* Views */,
 				7FD3D76C2941AFB700A9A622 /* ViewModels */,
 				7FD3D76D2941AFBD00A9A622 /* Models */,
+				7F895E9F29A1237700110CA1 /* Database */,
 				7F59B4122995D27600B9C19A /* common */,
 				7FD3D7522940324500A9A622 /* Assets.xcassets */,
 				7FD3D7542940324500A9A622 /* Preview Content */,
@@ -184,8 +255,9 @@
 		7FD3D76C2941AFB700A9A622 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7FD3D76E2941AFF300A9A622 /* SettingViewModel.swift */,
 				7F97B59B2999D51100A37E09 /* ClipDetectionViewModel.swift */,
+				7FFF6C6629A1B45400BF5527 /* LibraryViewModel.swift */,
+				7F895EAA29A1A90E00110CA1 /* ProjectViewModel.swift */,
 				7F07665529779566004152F0 /* ClipEditingViewModel.swift */,
 				7FA1D19B2986E17E009269CF /* ClipItemViewModel.swift */,
 			);
@@ -198,7 +270,6 @@
 				7F076653297794D4004152F0 /* VideoSeekManager.swift */,
 				7F0766572977964C004152F0 /* VideoPlayerManager.swift */,
 				7F5BAFF329836F68003D3A70 /* StillImageExtractor.swift */,
-				7F07665B2977FDF9004152F0 /* VideoPlayerPublisher.swift */,
 				7F0766592977AF71004152F0 /* VideoItem.swift */,
 				7FE8FFC5297D87D2001C4991 /* Settings.swift */,
 				7FA1D19F298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift */,
@@ -239,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FD3D7592940324500A9A622 /* Build configuration list for PBXNativeTarget "AutoClip" */;
 			buildPhases = (
+				673F69DD4852E210EF860E0C /* [CP] Check Pods Manifest.lock */,
 				7FD3D7472940324100A9A622 /* Sources */,
 				7FD3D7482940324100A9A622 /* Frameworks */,
 				7FD3D7492940324100A9A622 /* Resources */,
+				E4BEA23D6CCAF6CA27B79426 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +370,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		673F69DD4852E210EF860E0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoClip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4BEA23D6CCAF6CA27B79426 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AutoClip/Pods-AutoClip-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AutoClip/Pods-AutoClip-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AutoClip/Pods-AutoClip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7FD3D7472940324100A9A622 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -304,20 +419,21 @@
 			files = (
 				7F59B4182995D97900B9C19A /* PhotoLibraryVideoPickerView.swift in Sources */,
 				7F97B5A52999FA7800A37E09 /* gameSceneSettingView.swift in Sources */,
+				7F895EA429A12ED400110CA1 /* Time.swift in Sources */,
 				7FD3D7512940324100A9A622 /* ContentView.swift in Sources */,
 				7F97B5A02999F35900A37E09 /* gameSettingView.swift in Sources */,
 				7FA1D19A29864E67009269CF /* ClipItemView.swift in Sources */,
+				7F895EA929A131A300110CA1 /* SettingsModel.swift in Sources */,
 				7F59B40E2995CE3800B9C19A /* GameKind.swift in Sources */,
 				7FA1D1A0298A4CD4009269CF /* ClipsSaveToPhotoLibrary.swift in Sources */,
-				7FD3D76F2941AFF300A9A622 /* SettingViewModel.swift in Sources */,
 				7F07665A2977AF71004152F0 /* VideoItem.swift in Sources */,
 				7F59B40C2995CDF400B9C19A /* ClipDetectionProcess.swift in Sources */,
 				7F0766582977964C004152F0 /* VideoPlayerManager.swift in Sources */,
+				7FFF6C6729A1B45400BF5527 /* LibraryViewModel.swift in Sources */,
 				7F3A366D2942BFC200E486EA /* ClipDetectionView.swift in Sources */,
 				7FD3D76A294189D400A9A622 /* SettingView.swift in Sources */,
 				7FE8FFC6297D87D2001C4991 /* Settings.swift in Sources */,
 				7F1FB95029528FAF0067181E /* SeekBarView.swift in Sources */,
-				7F07665C2977FDF9004152F0 /* VideoPlayerPublisher.swift in Sources */,
 				7FD216E0295ABDE200AF6CCA /* ClipEditingView.swift in Sources */,
 				7FD3D75F2940344D00A9A622 /* LibraryView.swift in Sources */,
 				7F97B59C2999D51100A37E09 /* ClipDetectionViewModel.swift in Sources */,
@@ -327,14 +443,18 @@
 				7FD3D74F2940324100A9A622 /* AutoClipApp.swift in Sources */,
 				7F07665629779566004152F0 /* ClipEditingViewModel.swift in Sources */,
 				7FE8FFCC297E5367001C4991 /* timeSettingView.swift in Sources */,
+				7FFF6C6929A1DC9900BF5527 /* VideoItemModel.swift in Sources */,
+				7F895EA229A12E8500110CA1 /* TimeRange.swift in Sources */,
 				7F97B59E2999EDFD00A37E09 /* ClipDetectionProcessProgressView.swift in Sources */,
 				7F5BAFF429836F68003D3A70 /* StillImageExtractor.swift in Sources */,
+				7F895EAB29A1A90E00110CA1 /* ProjectViewModel.swift in Sources */,
 				7FF1B96029470FDD00F71AA6 /* ButtonView.swift in Sources */,
 				7FA1D19E2988B270009269CF /* ClipListView.swift in Sources */,
 				7F97B5A22999F9E500A37E09 /* GameSceneKind.swift in Sources */,
 				7FA1D19C2986E17E009269CF /* ClipItemViewModel.swift in Sources */,
 				7F076654297794D4004152F0 /* VideoSeekManager.swift in Sources */,
 				7FE8FFC8297D9753001C4991 /* SecondsKind.swift in Sources */,
+				7F895E9E29A1236800110CA1 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +581,7 @@
 		};
 		7FD3D75A2940324500A9A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AC5CB3ABBA350F04052D53A /* Pods-AutoClip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -498,6 +619,7 @@
 		};
 		7FD3D75B2940324500A9A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2582CC65312180828DABB02 /* Pods-AutoClip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

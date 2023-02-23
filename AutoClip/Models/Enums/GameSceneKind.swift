@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum GameSceneKind: CaseIterable {    
+enum GameSceneKind: String, CaseIterable, RawRepresentable, PersistableEnum {
     case kill
     case death
     

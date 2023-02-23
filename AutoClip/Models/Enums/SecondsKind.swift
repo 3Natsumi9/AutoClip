@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-enum SecondsKind: CaseIterable, Hashable {    
+enum SecondsKind: String, CaseIterable, RawRepresentable, PersistableEnum, Hashable {
     static var allCases: [SecondsKind] = [
         .zero, .three, .five, .ten, .fifteen, .twenty, .twentyfive, .thirty
     ]

@@ -13,6 +13,8 @@ import Photos
 class ClipsSaveToPhotoLibrary {
     var asset: AVAsset
     var videoTrack: AVAssetTrack?
+    var resultPublisher = PassthroughSubject<Bool, Never>()
+    var cancellable: AnyCancellable?
     
     init(asset: AVAsset) {
         self.asset = asset
@@ -57,18 +59,24 @@ class ClipsSaveToPhotoLibrary {
                                 request.creationDate = Date()
                             }, completionHandler: { success, error in
                                 if success {
+                                    self.resultPublisher.send(true)
                                     print("フォトライブラリへの保存が完了しました")
                                 } else {
+                                    self.resultPublisher.send(false)
                                     print("エラー: \(error?.localizedDescription ?? "")")
                                 }
                             })
                         case .denied, .restricted:
+                            self.resultPublisher.send(false)
                             print("フォトライブラリへの権限がありません")
                         case .notDetermined:
+                            self.resultPublisher.send(false)
                             print("notDetermined")
                         case .limited:
+                            self.resultPublisher.send(false)
                             print("limited")
                         @unknown default:
+                            self.resultPublisher.send(false)
                             print("不明なエラー")
                         }
                     }
