@@ -298,8 +298,10 @@ class ClipEditingViewModel: ObservableObject {
             }
         
         isPlaySubjectCancellable = isPlaySubject
-            .sink {
-                self.isPlay = $0
+            .sink { isPlay in
+                DispatchQueue.main.async {
+                    self.isPlay = isPlay
+                }
             }
     }
     

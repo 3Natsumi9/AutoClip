@@ -161,9 +161,11 @@ struct LibraryView: View {
                                     }
                                 }
                         }
+                        Spacer()
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
+                .frame(minHeight: 1000)
                 .navigationTitle("ライブラリ")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
