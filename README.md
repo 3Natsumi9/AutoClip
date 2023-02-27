@@ -6,11 +6,17 @@
 OpenCVやRealmはgitにあげていないので自分で導入する必要があります。
 
 ### OpenCV
+OpenCVのBuildにはCMakeが必要です
+まだインストールしていない場合にはインストールします
+```bash
+brew install cmake
+```
+
 リポジトリをクローンしてビルドをします
 ```bash
 git clone https://github.com/opencv/opencv.git
 
-./build_framework.py <outputdir>
+python opencv/platforms/ios/build_framework.py <outputdir>
 ```
 
 build_framework.pyを実行するとopencv2.frameworkが作成されるので、それを/AutoClip/common/に入れます。
