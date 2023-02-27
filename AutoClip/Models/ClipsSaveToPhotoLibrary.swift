@@ -29,9 +29,12 @@ class ClipsSaveToPhotoLibrary {
                 
                 try videoCompositionTrack.insertTimeRange(range, of: videoTrack, at: .zero)
                 
-                let audioCompositiontrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
-                
-                try audioCompositiontrack.insertTimeRange(range, of: audioTrack, at: .zero)
+                // 音声がない動画ならaudioCompositionTrackを作らない
+                if let audioTrack = audioTrack {
+                    let audioCompositiontrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid)!
+                    
+                    try audioCompositiontrack.insertTimeRange(range, of: audioTrack, at: .zero)
+                }
                 
                 return composition
             }
@@ -99,11 +102,11 @@ class ClipsSaveToPhotoLibrary {
         .eraseToAnyPublisher()
     }
     
-    private func audioTrackPublisher(asset: AVAsset) -> AnyPublisher<AVAssetTrack, Never> {
+    private func audioTrackPublisher(asset: AVAsset) -> AnyPublisher<AVAssetTrack?, Never> {
         Deferred {
-            Future<AVAssetTrack, Never> { promiss in
+            Future<AVAssetTrack?, Never> { promiss in
                 asset.loadTracks(withMediaType: .audio) { tracks, _ in
-                    promiss(.success(tracks!.first!))
+                    promiss(.success(tracks!.first))
                 }
             }
         }
