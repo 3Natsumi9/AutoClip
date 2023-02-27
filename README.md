@@ -6,7 +6,7 @@
 OpenCVやRealmはgitにあげていないので自分で導入する必要があります。
 
 ### OpenCV
-OpenCVのBuildにはCMakeが必要です
+OpenCVのBuildにはCMakeが必要です<br>
 まだインストールしていない場合にはインストールします
 ```bash
 brew install cmake
@@ -15,6 +15,7 @@ brew install cmake
 リポジトリをクローンしてビルドをします
 ```bash
 git clone https://github.com/opencv/opencv.git
+
 
 python opencv/platforms/ios/build_framework.py <outputdir>
 ```
